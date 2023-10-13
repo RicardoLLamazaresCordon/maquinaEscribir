@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Banner con Efecto Máquina de Escribir</title>
+  <style>
+    /* Estilos para el banner */
+    .banner {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner" id="bannerText"></div>
+
+  <script>
+    const text = "ESTILO MAQUINA DE ESCRIBIR";
+    const bannerText = document.getElementById('bannerText');
+
+    function startTypewriterEffect() {
+      let index = 0;
+      const typingInterval = setInterval(() => {
+        if (index < text.length) {
+          bannerText.textContent += text[index];
+          index++;
+        } else {
+          clearInterval(typingInterval);
+          setTimeout(() => {
+            bannerText.style.display = 'none'; // Oculta el texto después de 10 segundos
+          }, 10000); // 10000 milisegundos (10 segundos)
+        }
+      }, 100); // Velocidad de escritura (cambia el valor para ajustarla)
+    }
+
+    startTypewriterEffect();
+  </script>
+</body>
+</html>
